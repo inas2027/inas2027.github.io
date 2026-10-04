@@ -1,6 +1,265 @@
 <!DOCTYPE html>
-<html>
-    <body>
-        Hello, world!
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INAS 2027</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="floating-nav" aria-label="Primary">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+      <span>INAS 2027</span><span class="faq-icon" aria-hidden="true">V</span>
+    </button>
+    <h3>INAS 2027</h3>
+    <div id="nav-links" class="nav-links">
+      <a href="#about">About</a>
+      <!-- <a href="#keynotes">Keynotes</a> -->
+      <a href="#program">Program</a>
+      <a href="#wforum">Women's forum</a>
+      <a href="#organizers">Organizers</a>
+      <a href="#faq">Further Info</a>
+    </div>
+  </nav>
+
+  <section class="intro" id="intro">
+    <div class="intro-inner">
+      <p class="intro-copy">19th Annual Conference of the</p>
+      <h1>International Network of Analytical Sociology</h1>
+      <p class="intro-copy">May 19-21 2027 · Toulouse<br>Institute for Advanced Study in Toulouse<br>Toulouse School of Economics</p>
+    </div>
+    <a class="news-ticker" href="#about" aria-label="Call for abstracts coming soon">
+      <span class="news-ticker-window">
+        <span class="news-ticker-track">
+          <span class="news-ticker-group">
+            <!-- Add another news-ticker-item span here if you want another message. -->
+            <span class="news-ticker-item">Call for abstracts expected in November '26</span>
+          </span>
+        </span>
+      </span>
+    </a>
+  </section>
+
+  <section class="story-section section-warm" id="about">
+    <div class="sticky-stage">
+      <div class="media-cluster about-cluster" aria-label="About section images">
+        <!-- Change the pixel value below to set this image's desktop width. -->
+        <figure class="floating-card card-lg" style="--image-width: 580px;">
+          <img src="images/tse-brienne.jpg" alt="TSE" />
+        </figure>
+        <figure class="floating-card card-sm offset-top" style="--image-width: 385px;">
+          <img src="images/capitole.jpg" alt="Capitole square" />
+        </figure>
+        <figure class="floating-card card-xs offset-bottom" style="--image-width: 430px;">
+          <img src="images/garonne.jpg" alt="Garonne river" />
+        </figure>
+      </div>
+
+      <article class="text-block">
+        <h2>About the Conference</h2>
+        <p>
+          The annual conference of the International Network of Analytical Sociology (INAS) brings 
+          together scholars from quantitative sociology and adjacent fields (e.g., demography, 
+          political science, computational social science) who focus on mechanism-based explanations 
+          for social phenomena. Analytical sociologists study a range of topics, from segregation, 
+          inequality and polarization, to migration, social norms and the diffusion of innovation. 
+        </p><br>
+        <p>
+          The 19th edition of INAS takes place at the <a href="">Institute for Advanced Study in Toulouse</a>&mdash;<i>la ville rose</i>, 
+          France's fourth city by population. Toulouse is a vibrant city with a beautiful historic center, and is located in 
+          the heart of the Occitanie region, at the foot of the Pyrenees and in between the Atlantic 
+          and Mediterranean coasts.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- insert keynote section here -->
+
+  <section class="program-section program-animated" id="program">
+    <div class="program-layout">
+      <div class="program-intro">
+        <h2>Program</h2>
+        <p>
+          The conference will unfold across three days of forum, keynotes, and parallel sessions.
+          A detailed schedule will be published in the spring of 2027.
+        </p>
+      </div>
+
+      <div class="program-grid">
+        <article class="program-day" data-speed="1.35">
+          <h3>Day 1</h3>
+          <p class="program-day-subtitle">Women's forum</p>
+          <ul>
+            <li>Registration and coffee</li>
+            <li>Women's forum</li>
+            <li>Informal drinks</li>
+          </ul>
+          <p>Start: 2pm · End: 5pm</p>
+        </article>
+
+        <article class="program-day" data-speed="1">
+          <h3>Day 2</h3>
+          <ul>
+            <li>Registration and coffee</li>
+            <li>Welcome address</li>
+            <li>Parallel sessions</li>
+            <li>Keynote lecture</li>
+            <li>Conference dinner</li>
+          </ul>
+          <p>Start: 9am · End: 5pm<br>Conference dinner: 7-10pm</p>
+        </article>
+
+        <article class="program-day" data-speed="0.72">
+          <h3>Day 3</h3>
+          <ul>
+            <li>Parallel sessions</li>
+            <li>Keynote lecture</li>
+            <li>Merton award ceremony</li>
+            <li>Closing remarks</li>
+          </ul>
+          <p>Start: 9am · End: 5pm</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="story-section section-neutral" id="wforum">
+    <div class="sticky-stage">
+      <div class="media-cluster wforum-cluster" aria-label="wforum section image">
+        <figure class="floating-card card-lg" style="--image-width: 455px;">
+          <img src="images/tse-dome.jpg" alt="Women's forum" />
+        </figure>
+      </div>
+
+      <article class="text-block">
+        <h2>Women's forum</h2>
+        <p>
+          The Women’s Forum aims to enhance recognition of the work, perspectives, and expertise of women within the broader analytical sociology community. We will meet on May 19th in the afternoon and host flash talks for junior scholars as well as a panel on women in academia. The event is open to everyone. It is an informal setting for people to get to know each other and we will go for drinks afterwards.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="story-section section-cool" id="organizers">
+    <div class="sticky-stage">
+      <div class="media-cluster organizers-cluster" aria-label="Keynote speaker placeholders">
+        <figure class="floating-card card-lg" style="--image-width: 590px;">
+          <img src="images/organizers.jpg" alt="Organizers" />
+        </figure>
+      </div>
+
+      <article class="text-block">
+        <h2>Meet the organizers</h2>
+        <p>
+          This year's conference is organized by
+          <a href="https://marijnkeijzer.github.io" target="_blank">Marijn Keijzer</a>,
+          <a href="https://marion-hoffman.github.io/" target="_blank">Marion Hoffman</a>,
+          <a href="https://alexgelas.com/" target="_blank">Alexandros Gelastopoulos</a>,
+          <a href="https://lsage.github.io/" target="_blank">Lucas Sage</a>, and
+          <a href="https://www.juliettesaetre.com/" target="_blank">Juliette Saetre</a>.
+        </p><br>
+        <!-- <p>Program committee support comes from XXX and XXX</p><br> -->
+        <p>Administrative and organizational support: Stéphanie Risser, Céline Claustre, Mathis Mahinc and Valentin Quignon.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="story-section faq-section section-neutral" id="faq">
+    <div class="sticky-stage faq-stage">
+      <div class="faq-wrap">
+        <div class="faq">
+          <h2 style="text-align: center;">Further Information</h2>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Where should I stay?</span>
+              <span class="faq-icon" aria-hidden="true">V</span>
+            </button>
+            <div class="faq-answer">
+              <p>Participants are be responsible for arranging their own travel and accommodation.
+                Below, we list several hotels within walking distance from the conference venue that TSE and IAST have had good experiences with in the past.</p>
+              <ul>
+                <li><a href="https://www.hoteldebrienne.com/en/">Hotel de Brienne</a></li>
+                <li><a href="https://www.thesocialhub.co/toulouse/">The Social Hub</a></li>
+                <li><a href="https://toulousecapitole-plazahotel.com/">Plaza Hotel Capitole</a></li>
+                <li><a href="https://www.adagio-city.com/fr/hotel-b6z1-adagio-toulouse-centre-la-grave.shtml">Aparthotel Adagio Toulouse Centre La Grave</a></li>
+                <li><a href="https://www.hoteldesbeauxarts.com/en">Hotel des Beaux Arts</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Where is the venue?</span>
+              <span class="faq-icon" aria-hidden="true">V</span>
+            </button>
+            <div class="faq-answer">
+              <p>The event will take place at the Institute for Advanced Study in Toulouse at the <b>Toulouse School of Economics</b>.</p>
+              <p>Address: <a href="https://maps.app.goo.gl/KjeMv2FnLtkZZZDVA">1 Esplanande de l'Université, 31000 Toulouse, France</a></p>
+              <img src="images/tse-brienne.jpg" alt="TSE" style="width:60%; display:block; margin:auto;" />
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>How and when can I submit a paper?</span>
+              <span class="faq-icon" aria-hidden="true">V</span>
+            </button>
+            <div class="faq-answer">
+              <p>Submission details, deadlines, and a call for papers will be made available on this website later. We expect to follow the rough timeline:</p>
+              <ul>
+                <li><i>November '26</i>: Calls available</li>
+                <li><i>January '27</i>: Submission deadline</li>
+                <li><i>February '27</i>: Notification of acceptance</li>
+                <li><i>March '27</i>: Registration deadline</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>I do not have a budget for conferences, can you offer financial support?</span>
+              <span class="faq-icon" aria-hidden="true">V</span>
+            </button>
+            <div class="faq-answer">
+              <p>We offer a total of 10 fee waivers to scholars from developing countries or to early career researchers without a conference budget.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Can I get a certificate of attendance?</span>
+              <span class="faq-icon" aria-hidden="true">V</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, you can obtain a certificate of attendance at the registration desk during the entirety of the conference.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-logos" id="logos">
+    <div class="footer-inner">
+      <h2>Partners and Funders</h2>
+      <div class="logo-row">
+        <!-- <div class="logo-box"><a href=""><img src="images/logo-occitanie.png" alt="Occitanie"></a></div> -->
+        <div class="logo-box"><a href="https://www.tse-fr.eu/" target="_blank"><img src="images/logo-tse.png" alt="TSE"></a></div>
+        <div class="logo-box"><a href="https://www.iast.fr/" target="_blank"><img src="images/logo-iast.png" alt="IAST"></a></div>
+        <div class="logo-box"><a href="https://www.ut-capitole.fr/" target="_blank"><img src="images/logo-utcapitole.jpg" alt="UT Capitole"></a></div>
+        <div class="logo-box"><a href="https://www.tse-fr.eu/leadership-power-and-inequality" target="_blank"><img src="images/logo-lpi.png" alt="LPI"></a></div>
+        <div class="logo-box"><a href="https://www.analyticalsociology.com/" target="_blank"><img src="images/logo-inas.jpg" alt="INAS"></a></div>
+      </div>
+    </div>
+    <p>© 2026 Marijn Keijzer & ChatGPT-5.6. All rights reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
