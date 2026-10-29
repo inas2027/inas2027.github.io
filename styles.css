@@ -13,6 +13,8 @@ html {
   --rule: 1px solid var(--ink);
   --nav-w: 190px;
   --gutter: clamp(1rem, 4vw, 1.5rem);
+  /* Global extra scroll distance: 0 = no hold, 1 = original, larger = stickier. */
+  --section-stickiness: 0.35;
 }
 
 body {
@@ -160,7 +162,7 @@ footer {
 
 .story-section {
   position: relative;
-  min-height: 220vh;
+  min-height: calc(100vh + 120vh * var(--section-stickiness));
 }
 
 .sticky-stage {
@@ -409,7 +411,7 @@ footer {
 
 .program-animated {
   position: relative;
-  min-height: 180vh;
+  min-height: calc(100vh + 80vh * var(--section-stickiness));
 }
 
 .program-animated .program-layout {

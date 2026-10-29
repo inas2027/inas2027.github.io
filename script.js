@@ -75,15 +75,16 @@ const sectionTracks = Array.from(document.querySelectorAll("body > section, body
 });
 
 function updateSectionPauses() {
-  const shortPause = clamp(window.innerHeight * 0.3, 120, 240);
-  // Match the story sections: 220vh of section minus a 100vh sticky stage.
-  const readingPause = window.innerHeight * 1.2;
+  const stickiness = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--section-stickiness"));
+  const shortPause = clamp(window.innerHeight * 0.3, 120, 240) * stickiness;
+  // Match the extra scroll distance of the story sections.
+  const readingPause = window.innerHeight * 1.2 * stickiness;
   sectionTracks.forEach(({ section, track }) => {
     const pause = section.classList.contains("faq-section") ? readingPause : shortPause;
     const alreadySticky = (storySections.includes(section) && !section.classList.contains("flow-section")) ||
       (section === programSection && !section.classList.contains("flow-program"));
     const height = section.getBoundingClientRect().height;
-    const enabled = !reducedMotion.matches && !alreadySticky &&
+    const enabled = stickiness > 0 && !reducedMotion.matches && !alreadySticky &&
       (section.id !== "logos" || height > window.innerHeight);
     track.classList.toggle("has-pause", enabled);
     if (enabled) track.style.height = `${height + pause}px`;
@@ -153,7 +154,7 @@ function setMenuOpen(open) {
   navToggle.setAttribute("aria-expanded", String(open));
 }
 navToggle.addEventListener("click", () => setMenuOpen(!nav.classList.contains("open")));
-// Land on the reading area, not the padding before it or an artificial anchor.
+// Keep the FAQ's top spacing; other flowing sections land on their reading area.
 function navigateToSection(hash) {
   const section = document.getElementById(hash.slice(1));
   if (!section) return;
@@ -161,8 +162,9 @@ function navigateToSection(hash) {
   const pinned = section.classList.contains("story-section") &&
     !section.classList.contains("flow-section") && !section.classList.contains("faq-section");
   const programPinned = section === programSection && !section.classList.contains("flow-program");
-  const target = pinned || programPinned ? section : section.querySelector("h2") || section;
-  const offset = pinned || programPinned ? 0 : mobileLayout.matches ? nav.offsetHeight + 24 : 24;
+  const alignSection = pinned || programPinned || section.classList.contains("faq-section");
+  const target = alignSection ? section : section.querySelector("h2") || section;
+  const offset = alignSection ? 0 : mobileLayout.matches ? nav.offsetHeight + 24 : 24;
   // Start from the track's natural position, even when its section is currently pinned.
   const track = section.parentElement;
   const sectionTop = track.getBoundingClientRect().top + window.scrollY;
@@ -218,7 +220,7 @@ function updateProgramCards() {
 
   const rect = programSection.getBoundingClientRect();
   const total = rect.height - window.innerHeight;
-  const raw = -rect.top / total;
+  const raw = total > 0 ? -rect.top / total : rect.top <= 0 ? 1 : 0;
   const progress = clamp(raw, 0, 1);
 
   programCards.forEach((card, index) => {
