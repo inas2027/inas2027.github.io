@@ -2,6 +2,23 @@ function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
 
+/* LATEST GITHUB UPDATE */
+fetch("https://api.github.com/repos/inas2027/inas2027.github.io/commits?per_page=1")
+  .then((response) => {
+    if (!response.ok) throw new Error("GitHub update unavailable");
+    return response.json();
+  })
+  .then((commits) => {
+    const date = new Date(commits[0].commit.committer.date);
+    if (Number.isNaN(date.getTime())) return;
+    const lastUpdate = document.getElementById("last-update");
+    lastUpdate.dateTime = date.toISOString();
+    lastUpdate.textContent = date.toLocaleDateString("en-GB", {
+      day: "numeric", month: "long", year: "numeric", timeZone: "UTC"
+    });
+  })
+  .catch(() => {}); // Keep the fallback and GitHub link if the API is unavailable.
+
 /* NEWS TICKER */
 
 const ticker = document.querySelector(".news-ticker");
@@ -99,13 +116,18 @@ function updateSections() {
     const text = section.querySelector(".text-block");
     const image = section.querySelector(".media-cluster");
     const flowing = section.classList.contains("flow-section");
+    const sectionProgress = clamp((window.innerHeight - rect.top) / (rect.height + window.innerHeight), 0, 1);
     image.querySelectorAll(".floating-card").forEach((card, index) => {
       // Measure the untransformed cluster and card's layout position to avoid feedback.
       const top = image.getBoundingClientRect().top + card.offsetTop;
       const progress = clamp((window.innerHeight - top) / (window.innerHeight + card.offsetHeight), 0, 1);
       const x = flowing && mobileLayout.matches && !reducedMotion.matches
         ? (index % 2 === 0 ? 1 : -1) * 50 * (1 - 2 * progress) : 0;
-      card.style.transform = `translateX(${x}px)`;
+      // Speed up the left keynote portrait in both desktop layouts.
+      const y = section.id === "keynotes" && card.classList.contains("speaker-one") && !mobileLayout.matches && !reducedMotion.matches
+        ? (flowing ? top - (window.innerHeight - card.offsetHeight) / 2
+          : (window.innerHeight - image.offsetHeight) * (sectionProgress - 0.5)) * 0.15 : 0;
+      card.style.transform = `translate(${x}px, ${y}px)`;
     });
     if (flowing) {
       // A small entrance shift retains motion without pinning or clipping the text.

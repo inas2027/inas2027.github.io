@@ -148,7 +148,7 @@ footer {
 
 .intro h1 {
   margin: 0 0 1.1rem;
-  font-size: clamp(2rem, 8vw, 7.4rem);
+  font-size: clamp(2rem, 8vw, 6.4rem);
   line-height: 0.94;
 }
 
@@ -202,19 +202,23 @@ footer {
 
 .text-block h2 {
   margin: 0 0 0.9rem;
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-size: clamp(2.2rem, 4vw, 2.5rem);
   line-height: 0.98;
 }
 
 .text-block p {
   margin: 0;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   line-height: 1.42;
+}
+
+.text-block p + p { 
+  margin-top: 0.45em; 
 }
 
 .text-block h3 {
   margin: 1.2rem 0 0.35rem;
-  font-size: 1.55rem;
+  font-size: 1.45rem;
   line-height: 1.05;
 }
 
@@ -349,7 +353,7 @@ footer {
 }
 
 .program-intro h2 {
-  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-size: clamp(2.4rem, 4vw, 3rem);
   margin: 0 0 1rem;
 }
 
@@ -444,7 +448,7 @@ footer {
 .faq h2,
 .footer-inner h2 {
   margin: 0 0 1.5rem;
-  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-size: clamp(2.4rem, 4vw, 3rem);
   line-height: 0.98;
 }
 
@@ -547,6 +551,28 @@ footer {
 @media (min-width: 981px) {
   .floating-card {
     width: min(var(--image-width, 100%), 100%);
+  }
+
+  #keynotes:not(.flow-section) .text-block {
+    left: max(22.5%, calc((100% - 890px) / 2));
+  }
+
+  #keynotes:not(.flow-section) .keynote-cluster {
+    right: 3%;
+    width: 94%;
+  }
+
+  #keynotes:not(.flow-section) .portrait-card {
+    width: min(var(--image-width), 18vw);
+  }
+
+  #keynotes:not(.flow-section) .speaker-one {
+    left: 0;
+    right: auto;
+  }
+
+  #keynotes:not(.flow-section) .speaker-two {
+    right: 0;
   }
 }
 
